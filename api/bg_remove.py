@@ -1,4 +1,7 @@
 from flask import Flask, request, render_template, send_from_directory
+
+"""
+
 from PIL import Image
 import rembg
 import os
@@ -12,9 +15,13 @@ if not os.path.exists(UPLOAD_FOLDER):
 # Configure logging (optional)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
+"""
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['TEMPLATE_FOLDER'] = 'templates'  # Assuming templates folder
+
+"""
 
 def remove_background(image_path):
     try:
@@ -39,9 +46,12 @@ def remove_background(image_path):
     except Exception as e:
         logging.error(f"Error removing background: {e.__class__}, {e}")
         return None
+"""
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
+    """
+
     if request.method == 'POST':
         uploaded_file = request.files['image']
         if uploaded_file.filename != '':
@@ -59,12 +69,15 @@ def upload_file():
                 return "Error removing background! Check logs for details."
         else:
             return "No file selected!"
+"""
 
     return render_template('upload.html')  # Redirect to upload form on GET
+"""
 
 @app.route('/uploads/remove/<filename>', methods=['POST'])  # Corrected route (optional POST method)
 def download_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+"""
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(debug=True, port=3000)
