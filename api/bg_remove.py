@@ -18,7 +18,11 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 """
 
 app = Flask(__name__)
+
+"""
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+"""
+
 app.config['TEMPLATE_FOLDER'] = 'templates'  # Assuming templates folder
 
 """
