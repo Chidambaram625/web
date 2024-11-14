@@ -1,5 +1,8 @@
 from flask import Flask, request, render_template, send_from_directory
 
+from telegram import Update
+from telegram.ext import Application, ContextTypes, CommandHandler
+
 """
 
 from PIL import Image
